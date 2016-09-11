@@ -1,0 +1,400 @@
+html
+{
+    height:100%;
+}
+
+body 
+{
+    margin: 0 auto;
+    padding: 0 auto;
+    font-family: verdana, "lucida grande", geneva, sans-serif;
+    font-size: 11px;
+    line-height: 16px;
+    color: #333;
+    height:100%;
+    width: 800px;
+    background-color:#333;
+}
+
+#wrapper
+{
+    background-color: #fff;
+    min-height: 100%;  
+}
+
+#wrapper.template #masthead
+{
+    width: 800px;
+    height: 68px;
+    margin: 0 0 24px 0;
+    padding: 0;
+}
+
+#wrapper.template h2
+{
+    padding-top: 6px;
+    margin-bottom: 6px;
+    border-top: 1px solid #ccc;
+    font-size: 13px;
+}
+
+* html #wrapper
+{
+    height: 100%; 
+}
+
+#content
+{
+    float: left;
+    margin: 0 0 20px 24px;
+    width: 468px;
+    min-height: 400px;
+}
+
+#content p
+{
+    text-align: justify;
+}
+
+#content ul
+{
+    padding-left: 14px;
+}
+
+#content ul li
+{
+    padding-left: 8px;
+}
+
+#content ul li.spacer
+{
+    height: 5px;
+}
+
+#content img
+{
+    display: block;
+    margin: 5px 0 18px 0;
+}
+
+#content img.wrapText
+{
+    float: left;
+    margin: 5px 10px 2px 0;
+}
+
+
+/*----- SIDEBAR NAVIGATION STYLES ----------*/
+
+#sidebarMenu
+{
+    float: right;
+    margin: 0 10px 60px 0;
+    width: 244px;
+}
+
+#sidebarMenu ul
+{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid #ccc;    
+}
+
+#sidebarMenu li
+{       
+    display: block;
+    padding: 0;
+    margin: 0;
+    background: white;
+    height: 18px;
+    width: 244px;
+    font-size: 10px;
+    line-height: 17px;
+    color: #333;
+    border-bottom: 1px solid #ccc;
+}
+
+#sidebarMenu li.spacer
+{       
+    height: 24px;
+}
+
+#sidebarMenu li a
+{
+    display: block;
+    width: 226px;    
+    padding: 2px 4px 3px 14px;    
+    line-height: 13px;
+    color: #333;
+    text-decoration: none;
+}
+
+#sidebarMenu li a:hover
+{   
+    background-color: #eee;
+}
+
+#sidebarMenu li.menuOn a
+{   
+    color: #333;
+    background: #dbdbdb url(elements/bg_menuarrow.gif) no-repeat 6px 5px;
+}
+
+* html #sidebarMenu li.menuOn a
+{   
+     background: #dbdbdb url(elements/bg_menuarrow.gif) no-repeat 6px 6px;
+}
+
+#sidebarMenu li.menuOn a:hover
+{
+    background-color: #dbdbdb;
+}
+
+#sidebarMenu p
+{
+    text-align: center;
+    margin: 20px 0 0 0;
+}
+
+
+/*----- GENERIC CONTENT STYLES ----------*/
+
+h1, h2, h3, h4, h5, h6 
+{
+    margin: 0;
+    font-family: arial, helvetica, sans-serif;
+    color: #993300;
+    line-height: 1em;
+}
+
+h1
+{
+    font-size: 16px;
+    margin-bottom: 24px;
+}
+
+h1.context
+{
+    color: #999;
+    margin-bottom: 0.7ex;
+}
+
+h2
+{
+    font-size: 14px;
+    margin-top: 20px;
+    margin-bottom: 6px;
+}
+
+h3
+{
+    font-size: 13px;    
+    margin-bottom: 4px;
+}
+
+p 
+{
+    margin: 0 0 14px 0;
+    line-height: 17px;
+}
+
+a
+{
+    color: #444;
+}
+
+a:visited, a:hover
+{
+    color: #000;
+}
+
+div.line
+{
+    height: 2px;
+    margin: 0 0 10px 0;
+    border-top: 1px solid #ccc;
+}
+
+div.line hr
+{
+    margin: 0;
+    padding: 0;
+    display: none;
+    
+}
+
+/*
+ * UA hex colors:
+ *  cardinal red: #cc0033
+ *  navy blue: #003366
+ *
+ * Source: http://licensing.arizona.edu/sites/licensing/files/ua_id_guide_0.pdf
+ */
+
+.ua-red
+{
+    color: #cc0033;
+}
+
+.ua-blue
+{
+    color: #003366;
+}
+
+.lang-list
+{
+    font-weight: bold;
+}
+
+.screenshot
+{
+    margin: 0 0 0 10px;
+    padding: 0;
+    /*display: block;*/
+    float: right;
+}
+
+.screenshot a
+{
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+.screenshot img
+{
+    display: block;
+    margin: 0 auto !important;
+    padding: 1px;
+    border: 1px solid #000;
+    height: 80px;
+}
+
+.cam-img
+{
+    padding: 0;
+    margin: 0;
+    max-width: 400px;
+}
+
+.cam-img img
+{
+    display: block;
+    margin: 0 auto !important;
+    padding: 1px;
+    border: 1px solid #000;
+    max-height: 400px;
+    max-width: 400px;
+}
+
+.screenshot p, .cam-img p
+{
+    font-size: 10px;
+    font-family: Arial;
+    font-style: italic;
+    max-width: 180px;
+    word-wrap: break-word;
+}
+
+.screenshot ~ h2
+{
+    clear: both;
+}
+
+.notice
+{
+    border: 1px dashed #036;
+    padding: 3px;
+    margin: 1px;
+}
+
+
+/*----- FOOTER STYLES ----------*/
+
+#footer
+{
+    clear: both;
+    margin: 0 auto;
+    padding: 5px 0 0 0;
+    width: 724px;
+    border-top: 1px solid #ccc;
+    font-size: 10px;
+    color: #999;
+}
+
+#footer p
+{
+    margin: 0 5px 0 5px;
+    text-align: center;
+}
+
+#footer a
+{
+    color: #999;
+}
+
+#footer ul
+{
+    list-style: none;
+    text-align: center;
+    padding: 0;
+    margin: 0 5px 0 5px;
+}
+
+/* put menu items on same line */
+#footer ul li
+{
+    display: inline-block;
+    padding: 0 4px 0 0;
+    margin: 0;
+}
+
+/* adds a bar between footer menu items */
+#footer ul li + li
+{
+    border-left: 1px solid #000;
+    padding-left: 6px; /* the 6 makes up for the border appearing a little off */
+}
+
+
+/*----- VARIATIONS FOR PRINTING ----------*/
+/*
+@media print
+{
+
+#sidebarMenu ul
+{
+    display: none;
+}
+
+body, h1, h2, h3, h4, h5, h6, b, a, a:hover
+{
+    color: #000;
+    background-color: #fff;
+} 
+
+#content
+{
+    margin-bottom: 8px;
+}
+
+#footer
+{
+    padding-bottom: 0;
+}
+
+/* for site map * /
+#leftCol #sidebarMenu, #midCol #sidebarMenu, #rightCol #sidebarMenu
+{
+    display: block;
+}
+
+/* for site map * /
+#sidebarMenu li a
+{
+    color: black;
+}
+
+}
+*/
