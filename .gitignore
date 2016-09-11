@@ -1,0 +1,8 @@
+# Vim swap files
+*.swp
+
+# Mark's personal TODOs
+TODO*
+
+# Mark's misc. dev files
+MISC/
