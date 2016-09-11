@@ -1,8 +1,10 @@
-# Vim swap files
-*.swp
+# user configuration
+config/local-config.php
 
-# Mark's personal TODOs
-TODO*
+# developer's notes and project resources
+LOCAL/
 
-# Mark's misc. dev files
-MISC/
+# vim and backup files
+*.*.sw?
+*.bak
+*.BAK
