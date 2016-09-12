@@ -1,6 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <?php require_once 'config/config.php' ?>
+<?php require_once 'lib/lib.php' ?>
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
 
@@ -31,11 +32,11 @@
 <?php } ?>
 
 <?php if (defined('REFRESH_TIME')) { ?>
-            <p>New pictures are uploaded every few minutes. This page will automatically refresh in <?= $refreshTime ?> second<?= $refreshTime == 1 ? "" : "s" ?> in 
+            <p>A new picture is uploaded every <?= UPDATE_INTERVAL ?> minutes. This page will automatically refresh in <?= ceil($refreshTime / 60) ?> minute<?= ceil($refreshTime / 60) == 1 ? "" : "s" ?> in
             order to show a new picture!</p>
 <?php } else { ?>
-            <p>The cameras appear to be offline--they can go down for various reasons. The latest images shown above
-            were taken on <?= date(DATE_RFC850, $fmtime) ?>. Please try again later.
+            <p>The camera appears to be offline--it can go down for various reasons. The latest image shown above
+            was taken on <?= date(DATE_RFC850, getLatestModTime()) ?>. Please try again later.
 <?php } ?>
         </div>
 
