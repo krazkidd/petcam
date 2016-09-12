@@ -27,7 +27,7 @@
 <?php for ($i = 1; $i <= NUM_CAMS; $i++) { ?>
             <div class="cam-img">
                 <a href="<?= getImagePath($i) ?>"><img src="<?= getImagePath($i) ?>" alt="Latest LIVE image from Cam #<?= $i ?>" /></a>
-                <p>Cam #<?= $i ?></p>
+                <p><?= getCamIdentifier($i) . ' (' . getCamStatus($i) . ')' ?></p>
             </div>
 <?php } ?>
 

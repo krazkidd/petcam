@@ -274,7 +274,7 @@ div.line hr
 .cam-img
 {
     padding: 0;
-    margin: 0;
+    margin: 10px auto;
     max-width: 400px;
 }
 
@@ -295,6 +295,9 @@ div.line hr
     font-style: italic;
     max-width: 180px;
     word-wrap: break-word;
+    text-align: center !important;
+    display: block !important;
+    margin: 0 auto;
 }
 
 .screenshot ~ h2

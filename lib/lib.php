@@ -11,6 +11,11 @@ function getImagePath($camNum)
     return IMG_LOC . $camNum . "." . IMG_EXT;
 }
 
+function getModTime($camNum)
+{
+    return filemtime(getImagePath($camNum));
+}
+
 /*
  * Gets the modification time of the earliest
  * modified image.
@@ -24,7 +29,7 @@ function getEarliestModTime()
 
     for ($i = 1; $i <= NUM_CAMS; $i++)
     {
-        $ftime = filemtime(getImagePath($i));
+        $ftime = getModTime($i);
 
         if ($ftime)
             $mtime = min($mtime, $ftime);
@@ -51,7 +56,7 @@ function getLatestModTime()
 
     for ($i = 1; $i <= NUM_CAMS; $i++)
     {
-        $ftime = filemtime(getImagePath($i));
+        $ftime = getModTime($i);
 
         if ($ftime)
             $mtime = max($mtime, $ftime);
@@ -60,5 +65,27 @@ function getLatestModTime()
     define('__LATEST_MOD_TIME', $mtime);
 
     return __LATEST_MOD_TIME;
+}
+
+function getCamIdentifier($camNum)
+{
+    return "Cam #$camNum";
+}
+
+function getCamStatus($camNum)
+{
+    $mtime = getModTime($camNum);
+
+    if ( !$mtime || $mtime == 0)
+        $isOnline = false;
+    else if ($mtime + UPDATE_INTERVAL * 60 - time() < -15)
+        $isOnline = false;
+    else
+        $isOnline = true;
+
+    if ($isOnline)
+        return 'Online';
+    else
+        return 'Offline';
 }
 
