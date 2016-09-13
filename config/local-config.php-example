@@ -1,0 +1,68 @@
+<?php
+
+/*
+ * The path and common partial name to cam images.
+ *
+ * (For the value below, image filenames would look
+ * like 'images/latest-camN.EXT' where N is between
+ * 1 and NUM_CAMS and EXT is provided by IMG_EXT
+ * below.)
+ *
+ * Type: String
+ */
+define('IMG_LOC', 'images/latest-cam');
+
+/*
+ * The file extension for all images.
+ *
+ * Type: String
+ */
+define('IMG_EXT', 'jpg');
+
+/*
+ * How much time before images are updated (in
+ * minutes).
+ *
+ * This also determines how often the page will
+ * auto-refresh.
+ *
+ * Type: Integer
+ */
+define('UPDATE_INTERVAL', 15);
+
+/*
+ * The number of images to expect (at IMG_LOC) and
+ * to display on the page.
+ *
+ * Type: Integer
+ */
+define('NUM_CAMS', 1);
+
+/*
+ * The timezone of the physical location of the
+ * cameras.
+ *
+ * Type: String
+ *
+ * Provided value must be a timezone string that PHP
+ * understands. See http://php.net/manual/en/timezones.php
+ *
+ * OPTIONAL: Default is server-configured timezone.
+ */
+define('TIMEZONE', 'America/Los_Angeles');
+
+/*
+ * How to print the date when there is room for a
+ * relatively long string.
+ *
+ * Type: String
+ *
+ * Provided value must be a format string that PHP
+ * understands. See
+ * http://php.net/manual/en/function.date.php
+ *
+ * OPTIONAL: Default is defined by RFC 850. See
+ * http://php.net/manual/en/class.datetime.php#datetime.constants.types
+ */
+define('DATE_FMT_LONG', 'n F Y @ H:i T');
+
