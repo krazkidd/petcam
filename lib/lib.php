@@ -67,6 +67,18 @@ function getLatestModTime()
     return __LATEST_MOD_TIME;
 }
 
+function getFormattedTimeLong($time)
+{
+    if (defined('DATE_FMT_LONG')
+    {
+        return date(DATE_FMT_LONG, $time);
+    }
+    else
+    {
+        return date(DATE_RFC850, $time);
+    }
+}
+
 function getCamIdentifier($camNum)
 {
     return "Cam #$camNum";

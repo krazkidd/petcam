@@ -26,17 +26,17 @@
 
 <?php for ($i = 1; $i <= NUM_CAMS; $i++) { ?>
             <div class="cam-img">
-                <a href="<?= getImagePath($i) ?>"><img src="<?= getImagePath($i) ?>" alt="Latest LIVE image from Cam #<?= $i ?>" /></a>
+                <a href="<?= getImagePath($i) ?>"><img src="<?= getImagePath($i) ?>" alt="Latest LIVE image from <?= getCamIdentifier($i) . ' (' . getCamStatus($i) . ')' ?>" /></a>
                 <p><?= getCamIdentifier($i) . ' (' . getCamStatus($i) . ')' ?></p>
             </div>
 <?php } ?>
 
 <?php if (defined('REFRESH_TIME')) { ?>
-            <p>A new picture is uploaded every <?= UPDATE_INTERVAL ?> minutes. This page will automatically refresh in <?= ceil($refreshTime / 60) ?> minute<?= ceil($refreshTime / 60) == 1 ? "" : "s" ?> in
+            <p>A new picture is uploaded every <?= UPDATE_INTERVAL ?> minutes. This page will automatically refresh in <?= ceil(REFRESH_TIME / 60) ?> minute<?= ceil(REFRESH_TIME / 60) == 1 ? "" : "s" ?> in
             order to show a new picture!</p>
 <?php } else { ?>
             <p>The camera appears to be offline--it can go down for various reasons. The latest image shown above
-            was taken on <?= date(DATE_RFC850, getLatestModTime()) ?>. Please try again later.
+            was uploaded <strong><?= getFormattedTimeLong(getLatestModTime()) ?></strong>. Please try again later.
 <?php } ?>
         </div>
 
