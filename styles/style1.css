@@ -326,7 +326,7 @@ div.line hr
     max-width: 180px;
 }
 
-.status-list-online, .status-list-offline
+.status-list-Online, .status-list-Offline, .status-list-Unavailable
 {
     margin: 0 5px 0 0;
     padding: 0;
@@ -338,14 +338,19 @@ div.line hr
     float: left;
 }
 
-.status-list-online
+.status-list-Online
 {
     background-image: url('../images/statuslight-green.png');
 }
 
-.status-list-offline
+.status-list-Offline
 {
     background-image: url('../images/statuslight-red.png');
+}
+
+.status-list-Unavailable
+{
+    background-image: url('../images/statuslight-black.png');
 }
 
 .screenshot ~ h2

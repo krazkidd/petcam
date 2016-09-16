@@ -13,7 +13,12 @@ function getImagePath($camNum)
 
 function getModTime($camNum)
 {
-    return filemtime(getImagePath($camNum));
+    $path = getImagePath($camNum);
+
+    if (file_exists($path))
+         return filemtime($path);
+
+    return 0;
 }
 
 /*
@@ -100,16 +105,11 @@ function getCamStatus($camNum)
 {
     $mtime = getModTime($camNum);
 
-    if ( !$mtime || $mtime == 0)
-        $isOnline = false;
+    if ($mtime == 0)
+        return 'Unavailable';
     else if ($mtime + UPDATE_INTERVAL * 60 - time() < -15)
-        $isOnline = false;
-    else
-        $isOnline = true;
-
-    if ($isOnline)
-        return 'Online';
-    else
         return 'Offline';
+
+    return 'Online';
 }
 

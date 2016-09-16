@@ -10,7 +10,7 @@
     <ul id="camStatusList">
 <?php for ($i = 1; $i <= NUM_CAMS; $i++) { ?>
         <li>
-            <div class="status-list-<?= isCamOnline($i) ? 'on' : 'off' ?>line"></div> <?= getCamIdentifier($i) . ' (' . getCamStatus($i) . ')' ?>
+            <div class="status-list-<?= getCamStatus($i) ?>"></div> <?= getCamIdentifier($i) . ' (' . getCamStatus($i) . ')' ?>
         </li>
 <?php } ?>
     </ul>
