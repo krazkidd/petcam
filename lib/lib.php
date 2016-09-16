@@ -69,7 +69,7 @@ function getLatestModTime()
 
 function getFormattedTimeLong($time)
 {
-    if (defined('DATE_FMT_LONG')
+    if (defined('DATE_FMT_LONG'))
     {
         return date(DATE_FMT_LONG, $time);
     }
@@ -82,6 +82,18 @@ function getFormattedTimeLong($time)
 function getCamIdentifier($camNum)
 {
     return "Cam #$camNum";
+}
+
+function isCamOnline($camNum)
+{
+    $mtime = getModTime($camNum);
+
+    if ( !$mtime || $mtime == 0)
+        return false;
+    else if ($mtime + UPDATE_INTERVAL * 60 - time() < -15)
+        return false;
+
+    return true;
 }
 
 function getCamStatus($camNum)

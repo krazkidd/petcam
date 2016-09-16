@@ -102,7 +102,7 @@ body
 }
 
 #sidebarMenu li
-{       
+{
     display: block;
     padding: 0;
     margin: 0;
@@ -113,6 +113,22 @@ body
     line-height: 17px;
     color: #333;
     border-bottom: 1px solid #ccc;
+}
+
+#sidebarMenu ul#camStatusList
+{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border: none;
+    display: block;
+}
+
+#sidebarMenu ul#camStatusList li
+{
+    padding: 0 0 0 30px;
+    border: none;
+    width: auto;
 }
 
 #sidebarMenu li.spacer
@@ -154,7 +170,7 @@ body
 #sidebarMenu p
 {
     text-align: center;
-    margin: 20px 0 0 0;
+    margin: 20px 0 20px 0;
 }
 
 
@@ -275,7 +291,13 @@ div.line hr
 {
     padding: 0;
     margin: 10px auto;
-    max-width: 400px;
+}
+
+.cam-img div
+{
+    margin: 0;
+    padding: 0;
+    position: relative;
 }
 
 .cam-img img
@@ -293,11 +315,37 @@ div.line hr
     font-size: 10px;
     font-family: Arial;
     font-style: italic;
-    max-width: 180px;
     word-wrap: break-word;
     text-align: center !important;
     display: block !important;
     margin: 0 auto;
+}
+
+.screenshot p
+{
+    max-width: 180px;
+}
+
+.status-list-online, .status-list-offline
+{
+    margin: 0 5px 0 0;
+    padding: 0;
+    width: 8px;
+    height: 100%;
+    background-size: 8px 8px;
+    background-position: left center;
+    background-repeat: no-repeat;
+    float: left;
+}
+
+.status-list-online
+{
+    background-image: url('../images/statuslight-green.png');
+}
+
+.status-list-offline
+{
+    background-image: url('../images/statuslight-red.png');
 }
 
 .screenshot ~ h2
