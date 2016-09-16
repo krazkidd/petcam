@@ -26,7 +26,7 @@
 
 <?php for ($i = 1; $i <= NUM_CAMS; $i++) { ?>
             <div class="cam-img">
-                <a href="<?= getImagePath($i) ?>"><img src="<?= getImagePath($i) ?>" alt="Latest LIVE image from <?= getCamIdentifier($i) . ' (' . getCamStatus($i) . ')' ?>" /></a>
+                <a href="<?= getImagePath($i) ?>"><img src="<?= getImagePath($i) ?>" alt="Latest LIVE image from <?= getCamIdentifier($i) ?>" /></a>
                 <p><?= getCamIdentifier($i) . ' (' . getCamStatus($i) . ')' ?></p>
             </div>
 <?php } ?>
@@ -36,7 +36,7 @@
             order to show a new picture!</p>
 <?php } else { ?>
             <p>The camera appears to be offline--it can go down for various reasons. The latest image shown above
-            was uploaded <strong><?= getFormattedTimeLong(getLatestModTime()) ?></strong>. Please try again later.
+            was uploaded <strong><?= getFormattedTimeLong(getLatestModTime()) ?></strong>. Please try again later.</p>
 <?php } ?>
         </div>
 

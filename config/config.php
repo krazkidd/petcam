@@ -6,7 +6,7 @@ require_once dirname(__FILE__) . '/../lib/lib.php';
 //TODO validate local-config.php settings
 
 // for date functions
-if (defined('TIMEZONE')
+if (defined('TIMEZONE'))
 {
     date_default_timezone_set(TIMEZONE);
 }
