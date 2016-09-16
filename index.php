@@ -25,18 +25,19 @@
             <h1>Pet Cam</h1>
 
 <?php for ($i = 1; $i <= NUM_CAMS; $i++) { ?>
+    <?php if (isCamAvailable($i)) { ?>
             <div class="cam-img">
                 <a href="<?= getImagePath($i) ?>"><img src="<?= getImagePath($i) ?>" alt="Latest LIVE image from <?= getCamIdentifier($i) ?>" /></a>
                 <p><?= getCamIdentifier($i) . ' (' . getCamStatus($i) . ')' ?></p>
             </div>
+    <?php } ?>
 <?php } ?>
 
 <?php if (defined('REFRESH_TIME')) { ?>
-            <p>A new picture is uploaded every <?= UPDATE_INTERVAL ?> minutes. This page will automatically refresh in <?= ceil(REFRESH_TIME / 60) ?> minute<?= ceil(REFRESH_TIME / 60) == 1 ? "" : "s" ?> in
+            <p>This page will automatically refresh in <?= ceil(REFRESH_TIME / 60) ?> minute<?= ceil(REFRESH_TIME / 60) == 1 ? "" : "s" ?> in
             order to show a new picture!</p>
 <?php } else { ?>
-            <p>The camera appears to be offline--it can go down for various reasons. The latest image shown above
-            was uploaded <strong><?= getFormattedTimeLong(getLatestModTime()) ?></strong>. Please try again later.</p>
+            <p>All cameras appears to be offline--they can go down periodically for various reasons. Please try again later.</p>
 <?php } ?>
         </div>
 

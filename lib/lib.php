@@ -18,7 +18,7 @@ function getModTime($camNum)
     if (file_exists($path))
          return filemtime($path);
 
-    return 0;
+    return -1;
 }
 
 /*
@@ -36,7 +36,8 @@ function getEarliestModTime()
     {
         $ftime = getModTime($i);
 
-        if ($ftime)
+        //TODO what do if $ftime = 0? will first test fail?
+        if ($ftime && $ftime >= 0)
             $mtime = min($mtime, $ftime);
     }
 
@@ -63,7 +64,7 @@ function getLatestModTime()
     {
         $ftime = getModTime($i);
 
-        if ($ftime)
+        if ($ftime && $ftime >= 0)
             $mtime = max($mtime, $ftime);
     }
 
@@ -75,13 +76,9 @@ function getLatestModTime()
 function getFormattedTimeLong($time)
 {
     if (defined('DATE_FMT_LONG'))
-    {
         return date(DATE_FMT_LONG, $time);
-    }
-    else
-    {
-        return date(DATE_RFC850, $time);
-    }
+
+    return date(DATE_RFC850, $time);
 }
 
 function getCamIdentifier($camNum)
@@ -91,23 +88,29 @@ function getCamIdentifier($camNum)
 
 function isCamOnline($camNum)
 {
-    $mtime = getModTime($camNum);
+    if (isCamAvailable($camNum))
+    {
+        $mtime = getModTime($camNum);
 
-    if ( !$mtime || $mtime == 0)
-        return false;
-    else if ($mtime + UPDATE_INTERVAL * 60 - time() < -15)
-        return false;
+        if ( !$mtime || $mtime + UPDATE_INTERVAL * 60 - time() < -15)
+            return false;
+        else
+            return true;
+    }
 
-    return true;
+    return false;
+}
+
+function isCamAvailable($camNum)
+{
+    return getModTime($camNum) >= 0;
 }
 
 function getCamStatus($camNum)
 {
-    $mtime = getModTime($camNum);
-
-    if ($mtime == 0)
+    if ( !isCamAvailable($camNum))
         return 'Unavailable';
-    else if ($mtime + UPDATE_INTERVAL * 60 - time() < -15)
+    else if ( !isCamOnline($camNum))
         return 'Offline';
 
     return 'Online';
