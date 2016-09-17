@@ -25,7 +25,7 @@
             <div>
                 <p>There are four components to make this site work: A USB
                 camera, <a href="https://motion-project.github.io/">surveillance
-                software</a>, an upload script, and a webserver.</p>
+                software</a>, an upload script, and this website/server.</p>
 
                 <p>My upload script and this site are still under development;
                 I will provide source when they're reasonably easy to use.</p>
