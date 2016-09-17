@@ -30,24 +30,10 @@ if ($mtime >= 0)
 
         // don't allow a refresh time less than 5 seconds
         $refreshTime = max($refreshTime, 5);
-    }
-    else if ($refreshTime < 0)
-    {
-        // if refresh time is negative (but within UPDATE_INTERVAL
-        // minutes), the camera may be offline but we're going to try
-        // one more refresh
 
-        // we set the refresh time to UPDATE_INTERVAL minutes so that
-        // *at most* one automatic refresh occurs
-        $refreshTime = UPDATE_INTERVAL * 60 + 15;
-    }
-
-    if ($refreshTime > 0)
-    {
         // add a small random amount (0 - 30 seconds) so we don't have
         // all clients refreshing at the same time
         define('REFRESH_TIME', $refreshTime + rand(0, 6) * 5);
-        echo $refreshTime . ', ' . REFRESH_TIME;
     }
 }
 
