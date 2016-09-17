@@ -21,15 +21,21 @@ function getModTime($camNum)
     return -1;
 }
 
+function isOnlineTimestamp($timestamp, $time)
+{
+    // NOTE: The +15 is a buffer to account for network
+    //       latency and image upload time.
+    return $timestamp + UPDATE_INTERVAL * 60 + 15 - $time >= 0;
+}
+
 /*
  * Gets the modification time of the earliest
- * modified image.
+ * modified image out of all the cameras that
+ * are considered "online" with the given
+ * timestamp.
  */
-function getEarliestModTime()
+function getEarliestOnlineModTimeRelativeTo($time)
 {
-    if (defined('__EARLIEST_MOD_TIME'))
-        return __EARLIEST_MOD_TIME;
-
     $mtime = PHP_INT_MAX;
 
     for ($i = 1; $i <= NUM_CAMS; $i++)
@@ -38,39 +44,16 @@ function getEarliestModTime()
 
         //TODO what do if $ftime = 0? will first test fail?
         if ($ftime && $ftime >= 0)
-            $mtime = min($mtime, $ftime);
+        {
+            if (isOnlineTimestamp($ftime, $time))
+                $mtime = min($mtime, $ftime);
+        }
     }
 
     if ($mtime == PHP_INT_MAX)
-        $mtime = 0;
+        return -1;
 
-    define('__EARLIEST_MOD_TIME', $mtime);
-
-    return __EARLIEST_MOD_TIME;
-}
-
-/*
- * Gets the modification time of the latest
- * modified image.
- */
-function getLatestModTime()
-{
-    if (defined('__LATEST_MOD_TIME'))
-        return __LATEST_MOD_TIME;
-
-    $mtime = 0;
-
-    for ($i = 1; $i <= NUM_CAMS; $i++)
-    {
-        $ftime = getModTime($i);
-
-        if ($ftime && $ftime >= 0)
-            $mtime = max($mtime, $ftime);
-    }
-
-    define('__LATEST_MOD_TIME', $mtime);
-
-    return __LATEST_MOD_TIME;
+    return $mtime;
 }
 
 function getFormattedTimeLong($time)
@@ -92,7 +75,7 @@ function isCamOnline($camNum)
     {
         $mtime = getModTime($camNum);
 
-        if ( !$mtime || $mtime + UPDATE_INTERVAL * 60 - time() < -15)
+        if ( !$mtime || !isOnlineTimestamp($mtime, time()))
             return false;
         else
             return true;
