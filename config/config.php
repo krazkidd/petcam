@@ -31,9 +31,12 @@ if ($mtime >= 0)
         // don't allow a refresh time less than 5 seconds
         $refreshTime = max($refreshTime, 5);
 
+        if (defined(REFRESH_RND) && REFRESH_RND)
+            $refreshTime += rand(0, 30);
+
         // add a small random amount (0 - 30 seconds) so we don't have
         // all clients refreshing at the same time
-        define('REFRESH_TIME', $refreshTime + rand(0, 6) * 5);
+        define('REFRESH_TIME', $refreshTime);
     }
 }
 
