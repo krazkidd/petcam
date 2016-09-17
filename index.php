@@ -37,7 +37,7 @@
             <p>This page will automatically refresh in <?= ceil(REFRESH_TIME / 60) ?> minute<?= ceil(REFRESH_TIME / 60) == 1 ? "" : "s" ?> in
             order to show a new picture!</p>
 <?php } else { ?>
-            <p>All cameras appears to be offline--they can go down periodically for various reasons. Please try again later.</p>
+            <p>All cameras appear to be offline--they can go down periodically for various reasons. Please try again later.</p>
 <?php } ?>
         </div>
 
