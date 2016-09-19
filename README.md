@@ -21,9 +21,9 @@ Requirements:
 
 Installation:
 
-1. Copy config/local-config.php-example to config/local-
-   config.php and edit the settings in the latter to meet
-   your needs.
+1. Copy config/local-config.php-example to
+   config/local-config.php and edit the settings in the
+   latter to meet your needs.
 
 2. Change about.php to link to your distributable copy
    of the software.
@@ -34,4 +34,4 @@ Installation:
    
 4. Drop all files into the web root of your server.
 
-5. Consider adopting a pet.
+5. Consider adopting a pet from a local shelter.
