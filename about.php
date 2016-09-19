@@ -1,5 +1,28 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<?php
+/**************************************************************************
+
+This file is a part of Petcam, a simple way to make webcam images available
+on the Web.
+Copyright © 2014, 2016 Mark Ross <krazkidd@gmail.com>
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published
+by the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+**************************************************************************/
+?>
+
 <?php require_once 'config/config.php' ?>
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
@@ -27,8 +50,11 @@
                 camera, <a href="https://motion-project.github.io/">surveillance
                 software</a>, an upload script, and this website/server.</p>
 
-                <p>My upload script and this site are still under development;
-                I will provide source when they're reasonably easy to use.</p>
+                <p>The source form of this site is made available to you via
+                the GNU Affero General Public License version 3. You may copy,
+                modify, use, and redistribute versions of this site. The
+                files are available on <a href="https://github.com/krazkidd/petcam">
+                Github</a>.</p>
             </div>
         </div>
 
