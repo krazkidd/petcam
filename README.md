@@ -12,8 +12,11 @@ Project hosted at:
 License: GNU Affero GPLv3 (see COPYING file)
 
 Requirements:
+
 * PHP >= 5.5
+
 * a Web server and whatever necessary PHP module
+
 * A manner in which to periodically update images on the
   server (The Motion software project makes it easy to
   capture images and run custom scripts to upload. See:
