@@ -52,9 +52,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
                 <p>The source form of this site is made available to you via
                 the GNU Affero General Public License version 3. You may copy,
-                modify, use, and redistribute versions of this site. The
-                files are available on <a href="https://github.com/krazkidd/petcam">
-                Github</a>.</p>
+                modify, use, and redistribute versions of this site under certain
+                terms. The files are available on
+                <a href="https://github.com/krazkidd/petcam">Github</a>.</p>
             </div>
         </div>
 
